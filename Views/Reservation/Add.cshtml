@@ -6,7 +6,28 @@
     <p class="text-danger">@ViewData["ErrorMessage"]</p>
 }
 
-<form method="post" asp-controller="Reservation" asp-action="Add">
+<h2>Add Reservation</h2>
+
+<form asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="Reservation.date">Reservation Date and Time</label>
+        <input asp-for="Reservation.date" class="form-control" type="datetime-local" />
+        <span asp-validation-for="Reservation.date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="RestaurantId">Select Restaurant</label>
+        <select asp-for="Reservation.RestaurantId" asp-items="Model.AvailableRestaurants" class="form-control">
+            <option value="">-- Select a Restaurant --</option>
+        </select>
+        <span asp-validation-for="Reservation.RestaurantId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Reservation</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@* <form method="post" asp-controller="Reservation" asp-action="Add">
     <div asp-validation-summary="All" class="text-danger"></div>
     <input type="hidden" asp-for="Reservation.Id" />
     <input type="hidden" asp-for="Reservation.RestaurantId" />
@@ -18,4 +39,4 @@
     </div>
 
     <input type="submit" value="Reserve table" class="btn btn-primary" />
-</form>
+</form> *@

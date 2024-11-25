@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MongoDB.Bson;
 using RestRes.Models;
 using RestRes.Services;
@@ -19,22 +20,52 @@ namespace RestRes.Controllers
 
         public IActionResult Index()
         {
+            var groupedReservations = _ReservationService.GetAllReservations()
+                .GroupBy(r => new { r.RestaurantId, r.RestaurantName })
+                .ToList();
+
             ReservationListViewModel viewModel = new ReservationListViewModel()
             {
-                Reservations = _ReservationService.GetAllReservations()
+                GroupedReservations = groupedReservations
             };
+
             return View(viewModel);
         }
 
-        public IActionResult Add(ObjectId restaurantId)
+        //public IActionResult Add(ObjectId restaurantId)
+        //{
+        //    var selectedRestaurant = _RestaurantService.GetRestaurantById(restaurantId);
+
+        //    ReservationAddViewModel reservationAddViewModel = new ReservationAddViewModel();
+
+        //    reservationAddViewModel.Reservation = new Reservation();
+        //    reservationAddViewModel.Reservation.RestaurantId = selectedRestaurant.Id;
+        //    reservationAddViewModel.Reservation.RestaurantName = selectedRestaurant.name;
+        //    reservationAddViewModel.Reservation.date = DateTime.UtcNow;
+
+        //    return View(reservationAddViewModel);
+        //}
+        public IActionResult Add(ObjectId? restaurantId)
         {
-            var selectedRestaurant = _RestaurantService.GetRestaurantById(restaurantId);
+            var restaurants = _RestaurantService.GetAllRestaurants();
 
-            ReservationAddViewModel reservationAddViewModel = new ReservationAddViewModel();
+            ReservationAddViewModel reservationAddViewModel = new ReservationAddViewModel
+            {
+                AvailableRestaurants = restaurants.Select(r => new SelectListItem
+                {
+                    Value = r.Id.ToString(),
+                    Text = r.name
+                }).ToList(),
+                Reservation = new Reservation()
+            };
 
-            reservationAddViewModel.Reservation = new Reservation();
-            reservationAddViewModel.Reservation.RestaurantId = selectedRestaurant.Id;
-            reservationAddViewModel.Reservation.RestaurantName = selectedRestaurant.name;
+            if (restaurantId.HasValue)
+            {
+                var selectedRestaurant = _RestaurantService.GetRestaurantById(restaurantId.Value);
+                reservationAddViewModel.Reservation.RestaurantId = selectedRestaurant.Id;
+                reservationAddViewModel.Reservation.RestaurantName = selectedRestaurant.name;
+            }
+
             reservationAddViewModel.Reservation.date = DateTime.UtcNow;
 
             return View(reservationAddViewModel);
@@ -43,15 +74,48 @@ namespace RestRes.Controllers
         [HttpPost]
         public IActionResult Add(ReservationAddViewModel reservationAddViewModel)
         {
-            Reservation newReservation = new()
+            if (reservationAddViewModel.Reservation.RestaurantId == ObjectId.Empty)
             {
-                RestaurantId = reservationAddViewModel.Reservation.RestaurantId,
-                date = reservationAddViewModel.Reservation.date,
-            };
+                ModelState.AddModelError("", "You must select a restaurant.");
+            }
 
-            _ReservationService.AddReservation(newReservation);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                Reservation newReservation = new()
+                {
+                    RestaurantId = reservationAddViewModel.Reservation.RestaurantId,
+                    date = reservationAddViewModel.Reservation.date,
+                };
+
+                _ReservationService.AddReservation(newReservation);
+                return RedirectToAction("Index");
+            }
+
+            // Re-populate dropdown in case of errors
+            reservationAddViewModel.AvailableRestaurants = _RestaurantService.GetAllRestaurants()
+                .Select(r => new SelectListItem
+                {
+                    Value = r.Id.ToString(),
+                    Text = r.name
+                }).ToList();
+
+            return View(reservationAddViewModel);
         }
+
+
+
+        //[HttpPost]
+        //public IActionResult Add(ReservationAddViewModel reservationAddViewModel)
+        //{
+        //    Reservation newReservation = new()
+        //    {
+        //        RestaurantId = reservationAddViewModel.Reservation.RestaurantId,
+        //        date = reservationAddViewModel.Reservation.date,
+        //    };
+
+        //    _ReservationService.AddReservation(newReservation);
+        //    return RedirectToAction("Index");
+        //}
 
         public IActionResult Edit(string Id)
         {

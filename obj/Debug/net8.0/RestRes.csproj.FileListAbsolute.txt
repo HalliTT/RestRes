@@ -45,3 +45,4 @@ C:\Users\haral\Documents\GitHub\RestRes\obj\Debug\net8.0\refint\RestRes.dll
 C:\Users\haral\Documents\GitHub\RestRes\obj\Debug\net8.0\RestRes.pdb
 C:\Users\haral\Documents\GitHub\RestRes\obj\Debug\net8.0\RestRes.genruntimeconfig.cache
 C:\Users\haral\Documents\GitHub\RestRes\obj\Debug\net8.0\ref\RestRes.dll
+C:\Users\haral\Documents\GitHub\RestRes\obj\Debug\net8.0\RestRes.sourcelink.json
