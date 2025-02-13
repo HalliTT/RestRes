@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\haral\\Documents\\GitHub\\RestRes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EF79EE0E-9FBE-41A2-BDFB-C92C94E4E1A9}|RestRes.csproj|c:\\users\\haral\\documents\\github\\restres\\views\\reservation\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{EF79EE0E-9FBE-41A2-BDFB-C92C94E4E1A9}|RestRes.csproj|c:\\users\\haral\\documents\\github\\restres\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF79EE0E-9FBE-41A2-BDFB-C92C94E4E1A9}|RestRes.csproj|solutionrelative:controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF79EE0E-9FBE-41A2-BDFB-C92C94E4E1A9}|RestRes.csproj|C:\\Users\\haral\\Documents\\GitHub\\RestRes\\views\\reservation\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EF79EE0E-9FBE-41A2-BDFB-C92C94E4E1A9}|RestRes.csproj|solutionrelative:views\\reservation\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EF79EE0E-9FBE-41A2-BDFB-C92C94E4E1A9}|RestRes.csproj|C:\\Users\\haral\\Documents\\GitHub\\RestRes\\viewmodels\\reservationaddviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EF79EE0E-9FBE-41A2-BDFB-C92C94E4E1A9}|RestRes.csproj|solutionrelative:viewmodels\\reservationaddviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EF79EE0E-9FBE-41A2-BDFB-C92C94E4E1A9}|RestRes.csproj|C:\\Users\\haral\\Documents\\GitHub\\RestRes\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF79EE0E-9FBE-41A2-BDFB-C92C94E4E1A9}|RestRes.csproj|solutionrelative:controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +42,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ReservationAddViewModel.cs",
               "DocumentMoniker": "C:\\Users\\haral\\Documents\\GitHub\\RestRes\\ViewModels\\ReservationAddViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\ReservationAddViewModel.cs",
@@ -54,7 +54,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\haral\\Documents\\GitHub\\RestRes\\Views\\Reservation\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservation\\Index.cshtml",
@@ -66,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\haral\\Documents\\GitHub\\RestRes\\Views\\Restaurant\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Restaurant\\Index.cshtml",
@@ -78,7 +78,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Add.cshtml",
               "DocumentMoniker": "C:\\Users\\haral\\Documents\\GitHub\\RestRes\\Views\\Reservation\\Add.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservation\\Add.cshtml",
@@ -91,15 +91,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ReservationController.cs",
               "DocumentMoniker": "C:\\Users\\haral\\Documents\\GitHub\\RestRes\\Controllers\\ReservationController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReservationController.cs",
               "ToolTip": "C:\\Users\\haral\\Documents\\GitHub\\RestRes\\Controllers\\ReservationController.cs",
               "RelativeToolTip": "Controllers\\ReservationController.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAAAGcAAAAAAAAA",
+              "ViewState": "AQIAADwAAAAAAAAAAAAowD0AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T09:36:02.851Z"
+              "WhenOpened": "2024-11-25T09:36:02.851Z",
+              "EditorCaption": ""
             }
           ]
         }
